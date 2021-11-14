@@ -1,3 +1,6 @@
+//Sorry in advance for all the spacing. 
+//Spacing helps me learn and recognise different parts of code
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -42,7 +45,7 @@ function passGen(){
   
     var breakpoint = true;
   
-    var secret = '';
+    var hush = '';
   
     var passLngth = Number(window.prompt('Enter character length','10'));
   
@@ -96,8 +99,84 @@ function passGen(){
           } 
 
 }
+//Variables for pop up windows
+var optionBoxes = []
+
+    var upperL = window.confirm("Include uppercase letters?");
+    
+    console.log("upperL: "+ upperL);
+
+    var lowerL = window.confirm("Include lowercase letters?");
+    
+    console.log("lowerL: "+ lowerL);
+
+    var numbs = window.confirm("Include numbers?");
+    
+    console.log("numbs: "+ numbs);
+
+    var specialC = window.confirm("Include special characters?");
+    
+    console.log("specialC: "+ specialC);
 
 
+//Selected variable box time. 
+//I need to remember to put these in the same oreder as the ones on the top of this sheet.
+
+
+//Lowercase
+if (lowerL){
+
+    optionBoxes.push('lowerL');
+
+  hush +=  lowerCaseRandom();
+
+  passLngth--;
+
+  console.log(passLngth);
+
+}
+
+
+//Uppercase
+if (upperL){
+
+    optionBoxes.push('upperL');
+
+  hush+= upperCaseRandomr();
+
+  passLngth--;
+
+  console.log(passLngth);
+
+}
+
+
+//Specialcharacters
+if (specialC){
+
+    optionBoxes.push('specialC');
+
+  hush += pecialCharacterRandom();
+
+  passLngth--;
+
+  console.log(passLngth);
+
+}
+
+
+//Numbers
+if (numbs){
+
+    optionBoxes.push('numby');
+
+ hush += numberRandom();
+
+  passLngth--;
+
+  console.log(passLngth);
+
+}
 
 
 // Add event listener to generate button
