@@ -1,93 +1,27 @@
-//My take on Travery Media's Password Generator tutorial
+//What feels like my 10th time of making a password generator work
+var password=document.getElementById("password");
+//Will generate a passsword. Simple function with simple variables.
+ function generateRandomPassword() {
+    var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*'\"_-+/,.;:~()0123456789";
 
+    var passwordLength = 20;
 
-//DOM elements
-const resultEl = document.getElementById('result');
-const lengthEl = document.getElementById('length');
+    var password = "";
+//My now fourth attempt at a loop. Hope if works better than the last ones.
+ for (var i = 0; i <= passwordLength; i++) {
 
-const uppercaseEl = document.getElementById('uppercase');
-const lowercaseEl = document.getElementById('lowercase');
+   var randomNumber = Math.floor(Math.random() * chars.length);
 
-const symbolsEl = document.getElementById('symbols');
-const numbersEl = document.getElementById('numbers');
+   password += chars.substring(randomNumber, randomNumber +1);}
 
+        document.getElementById("password").value = password;
+ }
+ //Unlike the deathstar, this copy button is fully operational.
+ function copyRandomPassword() {
 
-const generateEl = document.getElementById('generate');
-const clipboard = document.getElementById('clipboard');
+    var copyText = document.getElementById("password");
 
-//First functions for random generation
-const funcRando = {
-	upper: getRandomUpper,
+    copyText.select();
 
-    lower: getRandomLower,
-
-    symbol: getRandomSymbol,
-
-	number: getRandomNumber}
-
-//Add first click event to have text appear in text area
-clipboard.addEventListener('click', () => {
-const textarea = document.createElement('textarea');
- const password = resultEl.innerText;
-        
-if (!password) { return; }
-        
-textarea.value = password;
-document.body.appendChild(textarea);
-textarea.select();
-document.execCommand('copy');
-textarea.remove();
-
-//Alert window for copied text
-alert('Copied to clipboard');});
-
-//Second event for clicked text. Used for check box options
-generate.addEventListener('click', () => {
-	const length = +lengthEl.value;
-    const hasUpper = uppercaseEl.checked;
-	const hasLower = lowercaseEl.checked;
-	const hasSymbol = symbolsEl.checked;
-	const hasNumber = numbersEl.checked;
-	resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);});
-
-
-//Function used to generate password. Will generate in result element
-function generatePassword(upper, lower, symbol, number, length) {
-let generatedPassword = '';
-const typesCount = upper + lower + symbol + number ;
-const typesArr = [{upper}, {lower}, {symbol}, {number}].filter(item => Object.values(item)[0]);
-//All false returns filtered out of array. Super handy!
-if(typesCount === 0) {
-    return '';
-}
-
-// Loop used to generate text
-for(let i=0; i<length; i+=typesCount) {
-    typesArr.forEach(type => {
-        const funcName = Object.keys(type)[0];
-        generatedPassword += randomFunc[funcName]();
-    });
-}
-
-const finalPassword = generatedPassword.slice(0, length);
-//Results in final password
-return finalPassword;
-}
-//Returns random upper case letters
-function getRandomUpper() {
-return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
-//Returns random lower case letter
-function getRandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
-//Returns random approved symbols
-function getRandomSymbol() {
-    const symbols = '!@#$%^&*(){}[]=<>/,.'
-    return symbols[Math.floor(Math.random() * symbols.length)];
-}
-//Returns random numbers 0-9
-function getRandomNumber() {
-return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
-
+    document.execCommand("copy"); 
+ } 

@@ -1,49 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-      
+  
     <title>Password Generator</title>
     <link rel="stylesheet" href="Assets/CSS/reset.css">
-    <script type="text/javascript" src="Assets/JavaScript/script.js"></script>
-    <link rel="stylesheet" href="Assets/CSS/style.css">
+    <link rel="stylesheet" href="Assets/CSS/stylesheet.css">
+   
   </head>
 
   <body>
-    <div class="container">
-        <h2>Password Generator</h2>
-        <div class="result-container">
-            <span id="result"></span>
-            <button class="btn" id="clipboard">
-                <i class="far fa-clipboard"></i>
-            </button>
-        </div>
-        <div class="settings">
-            <div class="setting">
-                <label>Password length</label>
-                <input type="number" id="length" min='4' max='20' value='20' />
-            </div>
-            <div class="setting">
-                <label>Include uppercase letters</label> 
-                <input type="checkbox" id="uppercase" checked />
-            </div>
-            <div class="setting">
-                <label>Include lowercase letters</label> 
-                <input type="checkbox" id="lowercase" checked />
-            </div>
-            <div class="setting">
-                <label>Include numbers</label> 
-                <input type="checkbox" id="numbers" checked />
-            </div>
-            <div class="setting">
-                <label>Include symbols</label> 
-                <input type="checkbox" id="symbols" checked />
-            </div>
-        </div>
-        <button class="btn btn-large" id="generate">
-            Generate password
-        </button>
-    </div>
-    
+
+    <section class="box">
+
+        <h2>Random Password Generater</h2>
+
+      <input type="text" name="" placeholder="Create password" 
+      id="password" readonly>
+      </input>
+
+      <table>
+
+        <th><div id="buttonclick" class="butt1"
+          onclick="generateRandomPassword()">Generate</div></th>
+  
+        <th><a  id="buttonclick" class="btt2" 
+          onclick="copyRandomPassword()">Copy</a></th>
+
+     </table>
+
+    </section>
+
+    <script type="text/javascript" src="Assets/JavaScript/script.js"></script>
     
   </body>
+
 </html>
