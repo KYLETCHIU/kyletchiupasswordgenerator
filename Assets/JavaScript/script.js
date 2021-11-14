@@ -91,15 +91,3 @@ function getRandomNumber() {
 return +String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
-const floating_btn = document.querySelector('.floating-btn');
-const close_btn = document.querySelector('.close-btn');
-const social_panel_container = document.querySelector('.social-panel-container');
-
-//Click event for button
-floating_btn.addEventListener('click', () => {
-	social_panel_container.classList.toggle('visible')
-});
-//Click event for button
-close_btn.addEventListener('click', () => {
-	social_panel_container.classList.remove('visible')
-});
